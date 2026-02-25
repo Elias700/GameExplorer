@@ -1,14 +1,13 @@
 
 import './App.css';
-import { AppRoutes } from './routes/AppRoutes';
+// import { AppRoutes } from './routes/AppRoutes';
+import Home from './pages/Home/Home';
 
 function App() {
 
   return (
     <>
-      <div className='bg-amber-400'>
-        ola mundo
-      </div>
+      < Home />
     </>
   )
 }
