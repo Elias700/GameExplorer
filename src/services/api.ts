@@ -6,3 +6,4 @@ export const api = axios.create({
     key: import.meta.env.VITE_RAWG_KEY,
   },
 });
+

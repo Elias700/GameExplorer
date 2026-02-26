@@ -10,9 +10,17 @@ export const getGames = async (): Promise<Game[]> => {
 
 // Buscar por nome
 export const searchGames = async (query: string): Promise<Game[]> => {
-  const response = await api.get(`/games?search=${query}`);
+  const response = await api.get(`/games?search=${encodeURIComponent(query)}`);
   return response.data.results;
 };
+
+/*
+  O ? indica:
+
+  Início dos parâmetros de consulta (query params)
+
+  Tudo depois do ? vira filtros da URL.
+*/
 
 // Detalhes do jogo
 export const getGameDetails = async (id: string) => {
