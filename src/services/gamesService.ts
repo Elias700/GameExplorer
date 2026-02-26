@@ -23,7 +23,7 @@ export const searchGames = async (query: string): Promise<Game[]> => {
 */
 
 // Detalhes do jogo
-export const getGameDetails = async (id: string) => {
+export const getGameDetails = async (id: number) => {
   const response = await api.get(`/games/${id}`);
   return response.data;
 };
