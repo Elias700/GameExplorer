@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useGames } from '../../hooks/useGames';
 import { GameModal } from '../../components/GameModal/GameModal';
 import { GameCard } from '../../components/GameCard/GameCard';
+import { VoltageButton } from '../../components/UI/Buttons/Buttons';
 
 function Home() {
   const { games, loading, error, handleSearch } = useGames();
@@ -72,6 +73,10 @@ function Home() {
           </div>
         ))}
       </div>
+
+      <VoltageButton onClick={() => alert("clicou")}>
+        Button
+      </VoltageButton>
 
     </div>
   );
