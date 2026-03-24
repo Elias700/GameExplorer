@@ -1,7 +1,7 @@
 
 import './App.css';
 // import { AppRoutes } from './routes/AppRoutes';
-import Home from './pages/Home/Home';
+import { Home } from './pages/Home/Home';
 
 function App() {
 

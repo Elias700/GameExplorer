@@ -7,3 +7,4 @@ export const api = axios.create({
   },
 });
 
+// site que tem api: https://rawg.io/
