@@ -1,77 +1,106 @@
-.voltage-btn {
-  position: relative;
-  padding: 1rem 3rem;
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  border-radius: 999px;
-  border: none;
-  background: #0d1127;
-  color: white;
-  cursor: pointer;
-  overflow: hidden;
-  isolation: isolate;
-  transition: all 0.3s ease;
+/* =========================
+   🔤 FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;400;500;600&display=swap');
+
+/* =========================
+   🎨 TAILWIND
+========================= */
+@import "tailwindcss";
+
+/* =========================
+   🎯 DESIGN TOKENS
+========================= */
+:root {
+  --color-primary: #7A06F6;
+  --color-secondary: #AA15DB;
+  --color-accent: #E524CD;
+  --color-highlight: #FD8A18;
+
+  --color-text: #FDFDFD;
+  --color-background: #1C1C1C;
 }
 
-.voltage-content {
-  position: relative;
-  z-index: 2;
+/* =========================
+   🌍 BASE (GLOBAL)
+========================= */
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    @apply text-white;
+  }
 }
 
-.voltage-border {
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  padding: 3px;
-  background: linear-gradient(
-    120deg,
-    #6bfeff,
-    #5978f3,
-    #6bfeff,
-    #a855f7,
-    #6bfeff
-  );
-  background-size: 300% 300%;
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  animation: none;
-}
-
-.voltage-btn:hover .voltage-border {
-  opacity: 1;
-  animation: electric-flow 2s linear infinite;
-}
-
-.voltage-btn::before {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 999px;
-  background: radial-gradient(circle, #6bfeff55 0%, transparent 70%);
-  filter: blur(12px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-
-.voltage-btn:hover::before {
-  opacity: 1;
-}
-
-.voltage-btn:hover {
-  transform: translateY(-2px);
-}
-
-@keyframes electric-flow {
+/* =========================
+   🎬 ANIMAÇÕES
+========================= */
+@keyframes gradientMove {
   0% {
     background-position: 0% 50%;
   }
   100% {
-    background-position: 300% 50%;
+    background-position: 100% 50%;
+  }
+}
+
+/* =========================
+   🧩 COMPONENTS
+========================= */
+@layer components {
+
+  .btn-gamer {
+    border: 4px solid transparent;
+    border-radius: 9999px;
+
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    background:
+      linear-gradient(var(--color-background), var(--color-background)) padding-box,
+      linear-gradient(
+        90deg,
+        var(--color-primary) 0%,
+        var(--color-secondary) 30%,
+        var(--color-accent) 65%,
+        var(--color-highlight) 100%
+      ) border-box;
+
+    background-size: 200% 200%;
+  }
+
+  .btn-gamer:hover {
+    transform: scale(1.08);
+
+    background:
+      linear-gradient(var(--color-background), var(--color-background)) padding-box,
+      linear-gradient(
+        270deg,
+        var(--color-primary),
+        var(--color-secondary),
+        var(--color-accent),
+        var(--color-highlight)
+      ) border-box;
+
+    background-size: 200% 200%;
+    animation: gradientMove 2s linear infinite;
+
+    box-shadow:
+      0 0 10px var(--color-primary),
+      0 0 20px var(--color-secondary),
+      0 0 30px var(--color-accent),
+      0 0 40px var(--color-highlight);
   }
 }
